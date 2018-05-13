@@ -35,6 +35,7 @@ audio_segments = {
     '+': 'sounds/operators/addition.' + extension,
     '-': 'sounds/operators/subtraction.' + extension,
     '*': 'sounds/operators/multiplication.' + extension,
+    '**': 'sounds/operators/power_of.' + extension,
     '/': 'sounds/operators/subtraction.' + extension,
 
     'hundred': 'sounds/place_values/hundred.' + extension,

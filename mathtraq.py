@@ -177,7 +177,6 @@ if __name__ == "__main__":
 
 """
 TODO
-    * upload to git
+    * redo sounds and make them slightly robotic by raising the treble and giving an echo with 0.01 delay, ~0.6 decay
     * make proper package
-    * tests
 """
