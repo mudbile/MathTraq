@@ -8,7 +8,15 @@ Why? Because I suck at arithmetic and I'm too lazy to sit and just practice. Now
 
 # How to use
 
-Use python 3 - I'm using 3.6.5. Untested with python 2. The following is copied from the help output of the app itself:
+Use python 3 - I'm using 3.6.5. Untested with python 2. 
+
+An example run would be:
+
+'''
+python mathtraq.py  10#0(1)1000{+-}-50(2)60?5000(2) 10#10(0)99{*}10(0)99?4000(0)
+'''
+
+The following is copied from the help output of the app itself:
 
 ```
 usage: mathtraq.py [-h] [-j OUTPUT_JSON] [-o OUTPUT_MP3] [-d MAX_DIGITS]
@@ -58,4 +66,4 @@ precision (-d argument)
 
 * You can replace the audio files for the sound bites - just make sure they're all the same bitrate. Please share them if you do because they're currently my voice and they're currently annoying.
 
-* Supports specifying power-of expressions as ** but, for now, it's not implemented and something somewhere will break. Stick to big four {+-*/} and you'll be fine
+* Supports specifying power-of expressions as ** but, for now, it's not implemented and something somewhere will break. Stick to big four {+-*/} and you'll be fine.
