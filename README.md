@@ -33,7 +33,10 @@ positional arguments:
                         60 with a maximum of 2 decimal places. They will be a
                         mix of addition, division and subtraction, and a
                         3000ms pause will occur before the answer is given.
-                        The answer will be rounded to 2 decimal places
+                        The answer will be rounded to 2 decimal places. Note
+                        that one * in the ops is multiplcation. Two * means
+                        'to the power of' and three means both multiplication
+                        and powers
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -65,5 +68,3 @@ precision (-d argument)
 * Uses pydub (http://mpmath.org/) to achieve arbitrary number length - developed by Fredrik Johansson
 
 * You can replace the audio files for the sound bites - just make sure they're all the same bitrate. Please share them if you do because they're currently my voice and they're currently annoying. Changing them to robotic sounding is on the todo.
-
-* Supports specifying power-of expressions as ** but, for now, it's not implemented and something somewhere will break. Stick to big four {+-*/} and you'll be fine.
