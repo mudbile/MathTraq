@@ -12,7 +12,7 @@ Use python 3 - I'm using 3.6.5. Untested with python 2.
 
 An example run would be:
 
-````
+```
 python mathtraq.py  10#0(1)1000{+-}-50(2)60?5000(2) 10#10(0)99{*}10(0)99?4000(0)
 ```
 
