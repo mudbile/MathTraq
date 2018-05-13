@@ -2,14 +2,15 @@
 
 This is a python script that builds custom mp3 files containing random arithmetic equations. You specify how
 many equations you want, parameters for the operands, the operator and the answer (i.e. decimals to round to), as well as
-the pause length between the question and the answer and between equations themselves, and you get an mp3 file that satifies those parameters.
+the pause length between the question and the answer and between equations themselves, and you get an mp3 file that satisfies those parameters.
 
-Why? Because I suck at arithmetic and I'm too lazy to sit and just practice. Now I can practice on the go.
+Why? Because I suck at arithmetic and I'm too lazy to sit and just practice. Now I can practice on the go like all the cool kids.
 
 # How to use
 
 Use python 3 - I'm using 3.6.5. Untested with python 2. The following is copied from the help output of the app itself:
 
+```
 usage: mathtraq.py [-h] [-j OUTPUT_JSON] [-o OUTPUT_MP3] [-d MAX_DIGITS]
                    [-b BUFFER_SIZE] [-v {0,1,2,3}]
                    [-p pause_between_questions]
@@ -47,7 +48,7 @@ optional arguments:
 
 If you get an error whilst wanting a lot of precision, try raising the
 precision (-d argument)
-
+```
 
 # Notes:
 
