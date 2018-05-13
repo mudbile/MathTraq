@@ -1,14 +1,14 @@
 # What Is It?
 
 This is a python script that builds custom mp3 files containing random arithmetic equations. You specify how
-many equations you want, parameters for both the operands and the operator, the pause length between the question
-and the answer and between equations themselves, and you get an mp3 file that satifies those parameters.
+many equations you want, parameters for the operands, the operator and the answer (i.e. decimals to round to), as well as
+the pause length between the question and the answer and between equations themselves, and you get an mp3 file that satifies those parameters.
 
 Why? Because I suck at arithmetic and I'm too lazy to sit and just practice. Now I can practice on the go.
 
 # How to use
 
-The following is copied from the help output of the app itself:
+Use python 3 - I'm using 3.6.5. Untested with python 2. The following is copied from the help output of the app itself:
 
 usage: mathtraq.py [-h] [-j OUTPUT_JSON] [-o OUTPUT_MP3] [-d MAX_DIGITS]
                    [-b BUFFER_SIZE] [-v {0,1,2,3}]
@@ -53,6 +53,8 @@ precision (-d argument)
 
 * Uses mp3cat (https://github.com/dmulholland/mp3cat) to concatenate the files - developed by Darren Mulholland
 
-* You can replace the audio files for the sound bites - just make sure they're all the same bitrate
+* Uses pydub (http://mpmath.org/) to achieve arbitrary number length - developed by Fredrik Johansson
 
-* Supports specifying power-of expressions as ** but, for now, it's not implemented and something somewhere will break
+* You can replace the audio files for the sound bites - just make sure they're all the same bitrate. Please share them if you do because they're currently my voice and they're currently annoying.
+
+* Supports specifying power-of expressions as ** but, for now, it's not implemented and something somewhere will break. Stick to big four {+-*/} and you'll be fine
