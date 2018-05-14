@@ -1,7 +1,13 @@
 import mpmath
 
+try:
+    import audio
+    place_names = audio.place_names
+except ImportError:
+    place_names = ('hundred', 'thousand', 'million', 'billion', 'trillion', 'somethings')
 
-place_names = ('hundred', 'thousand', 'million', 'billion', 'trillion', 'something')
+
+
 
 
 def to_tokens(number, include_commas=False, include_ands=True):

@@ -9,8 +9,10 @@ for dirpath, dirname, dirfiles in os.walk(start_dir):
     files.extend([os.path.join(dirpath, dirfile) for dirfile in dirfiles])
 
 for f in files:
-    if f[-3:] == 'wav':
-        sound = pydub.AudioSegment.from_wav(f)
-        sound.export(f[:-3] + 'mp3', format="mp3")
+    if f[-3:] == 'mp3':
+        sound = pydub.AudioSegment.from_mp3(f)
+        print(f)
         os.remove(f)
+        sound.export(f[:-3] + 'mp3', format="mp3")
+        
     

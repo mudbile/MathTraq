@@ -65,6 +65,8 @@ precision (-d argument)
 
 * Uses mp3cat (https://github.com/dmulholland/mp3cat) to concatenate the files - developed by Darren Mulholland
 
-* Uses pydub (http://mpmath.org/) to achieve arbitrary number length - developed by Fredrik Johansson
+* Uses mpmath (http://mpmath.org/) to achieve arbitrary number length - developed by Fredrik Johansson
 
-* You can replace the audio files for the sound bites - just make sure they're all the same bitrate. Please share them if you do because they're currently my voice and they're currently annoying. Changing them to robotic sounding is on the todo.
+* You can replace the audio files for the sound bites - just make sure they're all the same bitrate. Feel free to share them if you do- I've slightly modified my own voice but still... no one wants to hear themselves speak.
+
+* Add more places (eg. 'septillion') by adding the mp3 file into the placE_values folder, adding the name of the place value into the audio.place_names list between the current highest and the default 'somethings', and finally add an entry into audio.audio_segments pointing to the audio file.

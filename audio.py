@@ -1,7 +1,7 @@
 import os
 import subprocess
 
-
+place_names = ('hundred', 'thousand', 'million', 'billion', 'trillion', 'somethings')
 extension = 'mp3'
 
 class Digit():
@@ -44,12 +44,12 @@ audio_segments = {
     'billion': 'sounds/place_values/billion.' + extension,
     'trillion': 'sounds/place_values/trillion.' + extension,
     
-    '=': 'sounds/miscellaneous/equals.' + extension,
-    'and': 'sounds/miscellaneous/and.' + extension,
-    'decimal': 'sounds/miscellaneous/decimal.' + extension,
-    'negative': 'sounds/miscellaneous/negative.' + extension,
-    'something': 'sounds/miscellaneous/somethings.' + extension,
-    '500ms_silence': 'sounds/miscellaneous/500ms_silence.' + extension
+    '=': 'sounds/misc/equals.' + extension,
+    'and': 'sounds/misc/and.' + extension,
+    'decimal': 'sounds/misc/decimal.' + extension,
+    'negative': 'sounds/misc/negative.' + extension,
+    'somethings': 'sounds/misc/somethings.' + extension,
+    '500ms_silence': 'sounds/misc/500ms_silence.' + extension
 }
 
 

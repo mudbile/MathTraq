@@ -145,10 +145,16 @@ class mathtraq():
             with open(run_info.output_json, 'w') as f:
                 f.write(json.dumps([eq.to_dict() for eq in self.equations]))
 
-        
+        #silence between questions
+        self.print("\nDone. Creating pause file...", 1)
         silence_between_q = self.get_filename_in_temp('between_questions.mp3')
+        audio.create_silence_file(run_info.ms_pause, silence_between_q, 
+                                  silently=self.verbosity <= 2)
+       
         self.print("\nDone. Compiling audio template...", 1)
         audio_filenames = list()
+        #add a bit of silence before it begins
+        audio_filenames.extend([silence_between_q] * 4)
         for eq in  self.equations:
             audio_filenames.extend(eq.full_as_audio_filenames(self.temp_dir))
             #create temp silence file if needed
@@ -157,10 +163,7 @@ class mathtraq():
                 audio.create_silence_file(eq.ms_pause, inner_pause_file, 
                                           silently=self.verbosity <= 2)
             audio_filenames.append(silence_between_q)
-        #silence between questions
-        self.print("\nDone. Creating pause file...", 1)
-        audio.create_silence_file(run_info.ms_pause, silence_between_q, 
-                                silently=self.verbosity <= 2)
+       
         self.print("\nDone. Constructing audio...", 1)
         self.output_to_mp3(audio_filenames, run_info.output_mp3, run_info.buffer_size)
         self.print("\nDone. Cleaning up...", 1)
@@ -174,9 +177,14 @@ if __name__ == "__main__":
     mt = mathtraq()
     mt.main(sys.argv)
 
+"""
+Add more places (eg. 'septillion' by adding the mp3 file into the place_values folder, 
+adding the name of the place value into the audio.place_names list between the current 
+highest and the default 'somethings', and finally add an entry into audio.audio_segments 
+pointing to the audio file.
+"""
 
 """
 TODO
-    * redo sounds and make them slightly robotic by raising the treble and giving an echo with 0.01 delay, ~0.6 decay
     * make proper package
 """
