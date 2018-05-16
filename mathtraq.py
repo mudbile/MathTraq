@@ -14,14 +14,21 @@ import json
 
 
 class mathtraq():
-    def __init__(self):
+    def __init__(self, observers=None):
         """
+        observers is an optional list of callables that take a string, which are
+        called instead of printing output.
         Apart from initialising this, creates the doomed temp folder
         """
         self.equations = list()
         self.temp_dir = 'temp'
         self.verbosity = None
-        localutil.create_dir_if_absent(self.temp_dir)
+        self.flush_output = None
+        self.forget_mp3 = None
+        #handle mutable default
+        if observers is None:
+            observers = []
+        self.observers = observers
         
 
     def print(self, text, v_level, end='\n'):
@@ -30,7 +37,12 @@ class mathtraq():
         self.run_info.verbosity
         """
         if v_level <= self.verbosity:
-            print(text, end=end)
+            #output to observers instead of printing if there are any
+            if not self.observers:
+                print(text, end=end, flush=self.flush_output)
+            else:
+                for observer in self.observers:
+                    observer(text.strip())
 
 
     def clean_up(self):
@@ -133,6 +145,8 @@ class mathtraq():
         #parse arguments
         run_info = arghandler.generate_run_info(argv)
         self.verbosity = run_info.verbosity
+        self.flush_output = run_info.flush_output
+        self.forget_mp3 = run_info.forget_mp3
 
         self.print("\nInput valid. Generating equations...", 1)
         for template in run_info.equation_templates:
@@ -142,8 +156,15 @@ class mathtraq():
         #output json of all equations if user argued for it
         if run_info.output_json:
             self.print("\nDone. Writing out json...", 1)
+            jsonString = json.dumps([eq.to_dict() for eq in self.equations]) 
             with open(run_info.output_json, 'w') as f:
-                f.write(json.dumps([eq.to_dict() for eq in self.equations]))
+                json.dump(jsonString, f)
+
+        if (self.forget_mp3):
+            self.print("\nDone. MP3 ignored. Enjoy\n", 1)
+            return 
+
+        localutil.create_dir_if_absent(self.temp_dir)
 
         #silence between questions
         self.print("\nDone. Creating pause file...", 1)
@@ -171,11 +192,28 @@ class mathtraq():
         self.print("\nDone. Enjoy!\n", 1)
 
 
-
-
 if __name__ == "__main__":
-    mt = mathtraq()
-    mt.main(sys.argv)
+    mt = mathtraq(None)
+    try:
+        print(sys.argv)
+        mt.main(sys.argv)    
+    finally:
+        mt.clean_up()
+
+
+def run_as_module(input_string, observers=None):
+    """
+
+    """
+    args = ['mathtraq.py']
+    args.extend(input_string.split(' '))
+    mt = mathtraq(observers)
+    try:
+        print(args)
+        mt.main(args)    
+    finally:
+        mt.clean_up()
+
 
 """
 Add more places (eg. 'septillion' by adding the mp3 file into the place_values folder, 
