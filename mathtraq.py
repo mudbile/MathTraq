@@ -192,18 +192,15 @@ class mathtraq():
         self.print("\nDone. Enjoy!\n", 1)
 
 
-if __name__ == "__main__":
-    mt = mathtraq(None)
-    try:
-        print(sys.argv)
-        mt.main(sys.argv)    
-    finally:
-        mt.clean_up()
 
 
 def run_as_module(input_string, observers=None):
     """
-
+    pass a string that is everything that would come after 'python mathtraq.py'
+    and an optional list of observers which will be called with the messages
+    instead of printing them to stdout.
+    e.g.:
+        mathtraq.run_as_module('500#0(1)1000{+/-}-50(2)60?3000(2)', observers=[doSomethingWithText])
     """
     args = ['mathtraq.py']
     args.extend(input_string.split(' '))
@@ -211,6 +208,17 @@ def run_as_module(input_string, observers=None):
     try:
         print(args)
         mt.main(args)    
+    finally:
+        mt.clean_up()
+
+
+
+#Run as script
+if __name__ == "__main__":
+    mt = mathtraq(None)
+    try:
+        print(sys.argv)
+        mt.main(sys.argv)    
     finally:
         mt.clean_up()
 
@@ -225,4 +233,5 @@ pointing to the audio file.
 """
 TODO
     * make proper package
+    * fix division by zero by adding an 'undefined' audio clip and associated logic
 """
