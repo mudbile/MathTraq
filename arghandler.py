@@ -94,9 +94,9 @@ def generate_arg_parser():
                             help=buffer_help + " (default: %(default)s)")
         parser.add_argument('-v', '--verbosity', nargs=1, action='store', dest='verbosity', default=[1], type=int, choices=[0,1,2,3],
                             help="0 is no output and 3 is a lot (default: %(default)s)")
-        parser.add_argument('-f', '--forget_mp3', action='store_true', dest='forget_mp3',
+        parser.add_argument('-z', '--forget_mp3', action='store_true', dest='forget_mp3',
                             help="use with -j to only output the json")
-        parser.add_argument('-z', '--flush_output', action='store_true', dest='flush_output',
+        parser.add_argument('-f', '--flush_output', action='store_true', dest='flush_output',
                             help="include to immediately flush the output stream")
         parser.add_argument('-p', '--ms_pause', nargs=1, action='store', dest='ms_pause', default=[500], type=positive_int,
                             metavar='pause_between_questions',

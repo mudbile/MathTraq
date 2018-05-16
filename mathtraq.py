@@ -161,7 +161,7 @@ class mathtraq():
                 json.dump(jsonString, f)
 
         if (self.forget_mp3):
-            self.print("\nDone. MP3 ignored. Enjoy\n", 1)
+            self.print("\nDone. MP3 ignored. Enjoy!\n", 1)
             return 
 
         localutil.create_dir_if_absent(self.temp_dir)

@@ -1,5 +1,6 @@
 import mpmath
 
+#we want to sync place_names with audio if we're working with it.
 try:
     import audio
     place_names = audio.place_names
