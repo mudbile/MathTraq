@@ -155,9 +155,9 @@ class Mathtraq():
             #output json of all equations if user argued for it
             if run_info.output_json:
                 self.print("\nDone. Writing out json...", 1)
-                jsonString = json.dumps([eq.to_dict() for eq in self.equations]) 
+                j = json.loads(json.dumps([eq.to_dict() for eq in self.equations]))
                 with open(run_info.output_json, 'w') as f:
-                    json.dump(jsonString, f)
+                    json.dump(j, f)
 
             if (self.forget_mp3):
                 self.print("\nDone. MP3 ignored. Enjoy!\n", 1)

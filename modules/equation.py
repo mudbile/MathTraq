@@ -44,8 +44,12 @@ class Equation():
         """
         The answer is created on demand so it plays well with changing max_digits
         """
-        answer = Equation.ops[self.op](self.lhs, self.rhs)
-        return localutil.round_to_num_decimals(answer, self.ans_max_dec)
+        try:
+            answer = Equation.ops[self.op](self.lhs, self.rhs)
+            return localutil.round_to_num_decimals(answer, self.ans_max_dec)
+        except:
+            return 'undefined'
+        
  
 
     ##### JSON Representation #####

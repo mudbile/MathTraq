@@ -36,7 +36,10 @@ def get_random(minimum, maximum, max_decimal_places):
         Note: would-be integers have .0 attached in mpf land
         """
         #get a random number between [minimum, maximum)
-        num = mpmath.rand() * (maximum-minimum) + minimum
+        if max_decimal_places == 0:
+            num = maximum - mpmath.rand() * (maximum-minimum + 1)
+        else:
+            num = maximum - mpmath.rand() * (maximum-minimum)
         #scale it up
         num *= mpmath.power(10, max_decimal_places)
         #cut off it's tail

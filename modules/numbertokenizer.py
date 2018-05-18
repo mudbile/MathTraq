@@ -30,6 +30,9 @@ def to_tokens(number, include_commas=False, include_ands=True):
     include_ands    -> if True, will include "and"s where appropriate
 
     """
+    if number == 'undefined':
+        return ['undefined']
+
     number = mpmath.mpf(number)
     token_list = list()
 

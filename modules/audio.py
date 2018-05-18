@@ -38,7 +38,7 @@ audio_segments = {
     '-': 'sounds/operators/subtraction.' + extension,
     '*': 'sounds/operators/multiplication.' + extension,
     '**': 'sounds/operators/power_of.' + extension,
-    '/': 'sounds/operators/subtraction.' + extension,
+    '/': 'sounds/operators/division.' + extension,
 
     'hundred': 'sounds/place_values/hundred.' + extension,
     'thousand': 'sounds/place_values/thousand.' + extension,
@@ -50,6 +50,7 @@ audio_segments = {
     'and': 'sounds/misc/and.' + extension,
     'decimal': 'sounds/misc/decimal.' + extension,
     'negative': 'sounds/misc/negative.' + extension,
+    'undefined': 'sounds/misc/undefined.' + extension,
     'somethings': 'sounds/misc/somethings.' + extension,
     '500ms_silence': 'sounds/misc/500ms_silence.' + extension
 }
