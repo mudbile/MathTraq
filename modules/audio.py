@@ -1,8 +1,10 @@
 import os
 import subprocess
 
+
 place_names = ('hundred', 'thousand', 'million', 'billion', 'trillion', 'somethings')
 extension = 'mp3'
+
 
 class Digit():
     """
@@ -89,16 +91,16 @@ def create_silence_file(ms_length, file_name, silently = False):
         silence_file = tokens_to_audio(['500ms_silence'])
         times_to_concat = int(ms_length / 500) or 1
         if silently:
-            current_command = ['mp3cat', '-f', '-q', '-o', file_name]
+            current_command = ['bin/mp3cat', '-f', '-q', '-o', file_name]
         else:
-            current_command = ['mp3cat', '-f', '-o', file_name]
+            current_command = ['bin/mp3cat', '-f', '-o', file_name]
         current_command.extend([silence_file] * int(times_to_concat))
         subprocess.run(current_command)
 
 def create_audio_by_concatenation(files_to_concat, output_file, silently=False):
     if silently:
-        current_command = ['mp3cat', '-f', '-q', '-o', output_file]
+        current_command = ['bin/mp3cat', '-f', '-q', '-o', output_file]
     else:
-        current_command = ['mp3cat', '-f', '-o', output_file]
+        current_command = ['bin/mp3cat', '-f', '-o', output_file]
     current_command.extend(files_to_concat)
     subprocess.run(current_command)

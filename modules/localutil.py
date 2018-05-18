@@ -1,5 +1,6 @@
 import mpmath
 import os
+import uuid
 
 def is_number(s):
     try:
@@ -84,3 +85,21 @@ def create_dir_if_absent(dirname):
     except FileExistsError :
         pass
 
+
+def get_unique_filenames(dir, attempts_before_error, extensions):
+    """
+    Returns a list of filenames with the given extensions that don't exist in
+    the given dir. Each filename will have the same stub prepended to their extension. 
+    Extensions to be given without the '.'. The first element in the list is the stub itself
+    """
+    for i in range(0, attempts_before_error):
+        filename_stub = uuid.uuid4().hex
+        possible_filenames = [os.path.join(dir, filename_stub + '.' + ext) for ext in extensions]
+        unique = True
+        for f in possible_filenames:
+            if os.path.isfile(f):
+                break
+        ret = [filename_stub]
+        ret.extend(possible_filenames)
+        return ret
+    raise IOError("Unable to create unique file")

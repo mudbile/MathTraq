@@ -1,5 +1,5 @@
 import argparse
-import equationtemplate
+from . import equationtemplate
 import re
 import os
 import mpmath

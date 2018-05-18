@@ -1,7 +1,7 @@
 import mpmath
-import numbertokenizer
-import audio
-import localutil
+from . import numbertokenizer
+from . import localutil
+from . import audio
 import os
 
 # def set_max_num_digits(num_decimal_places):
