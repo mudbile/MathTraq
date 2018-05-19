@@ -1,13 +1,13 @@
 import sys
-from modules import equation
+from .modules import equation
 import random
 import os
 import re
 import mpmath
-from modules import audio
+from .modules import audio
 import shutil
-from modules import localutil
-from modules import arghandler
+from .modules import localutil
+from .modules import arghandler
 import json
 
 
@@ -212,6 +212,10 @@ def run_as_module(input_string, observers=None):
 
 
 if __name__ == "__main__":
+    Mathtraq(None).main(sys.argv)
+
+
+def main(args):
     Mathtraq(None).main(sys.argv)
 
 

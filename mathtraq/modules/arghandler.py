@@ -1,3 +1,6 @@
+'''
+Author: Daniel Dowsett 05/2018
+'''
 import argparse
 from . import equationtemplate
 import re

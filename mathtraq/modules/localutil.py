@@ -1,3 +1,6 @@
+'''
+Author: Daniel Dowsett 05/2018
+'''
 import mpmath
 import os
 import uuid

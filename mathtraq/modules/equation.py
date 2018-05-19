@@ -1,3 +1,6 @@
+'''
+Author: Daniel Dowsett 05/2018
+'''
 import mpmath
 from . import numbertokenizer
 from . import localutil

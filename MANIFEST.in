@@ -1,0 +1,6 @@
+include mathtraq/bin/mp3cat.exe
+recursive-include mathtraq/sounds *.mp3
+include mathtraq/modules/*
+include README.md
+include *.py
+include mathtraq/mathtraq.py

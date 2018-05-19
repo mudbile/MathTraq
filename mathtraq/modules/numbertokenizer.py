@@ -1,6 +1,10 @@
+'''
+Author: Daniel Dowsett 05/2018
+'''
 import mpmath
 
 #we want to sync place_names with audio if we're working with it.
+#otherwise we can go as high as we want text-wise
 try:
     import audio
     place_names = audio.place_names

@@ -1,3 +1,6 @@
+'''
+Author: Daniel Dowsett 05/2018
+'''
 class EquationTemplate():
         def __init__(self, num_eqs, lhs_min, lhs_max_dec, lhs_max, ops, 
                      rhs_min, rhs_max_dec, rhs_max, ms_pause, ans_max_dec):

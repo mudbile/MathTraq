@@ -6,20 +6,23 @@ the pause length between the question and the answer and between equations thems
 
 Why? Because I suck at arithmetic and I'm too lazy to sit and just practice. Now I can practice on the go like all the cool kids.
 
+
 # How to use
 
-Use python 3 - I'm using 3.6.5. Untested with python 2. 
+Use python 3.6. Untested with python 2. 
 
 An example run would be:
 
 ```
-python mathtraq.py  10#0(1)1000{+-}-50(2)60?5000(2) 10#10(0)99{*}10(0)99?4000(0)
+python run.py  10#0(1)1000{+-}-50(2)60?5000(2) 10#10(0)99{*}10(0)99?4000(0)
 ```
+This assumes you're in the directory where the Mathtraq package has been installed.
+
 
 The following is copied from the help output of the app itself:
 
 ```
-usage: mathtraq.py [-h] [-j OUTPUT_JSON] [-o OUTPUT_MP3] [-d MAX_DIGITS]
+usage: run.py [-h] [-j OUTPUT_JSON] [-o OUTPUT_MP3] [-d MAX_DIGITS]
                    [-b BUFFER_SIZE] [-v {0,1,2,3}]
                    [-p pause_between_questions]
                    template [template ...]
