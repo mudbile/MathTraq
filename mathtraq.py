@@ -19,7 +19,7 @@ class Mathtraq():
         Apart from initialising this, creates the doomed temp folder
         """
         self.equations = list()
-        self.temp_dir = 'temp'
+        self.temp_dir = None
         self.verbosity = None
         self.flush_output = None
         self.forget_mp3 = None
@@ -47,7 +47,8 @@ class Mathtraq():
         """
         Cleans up temp files, etc.
         """
-        shutil.rmtree(self.temp_dir, ignore_errors=True)
+        if not self.temp_dir is None:
+            shutil.rmtree(self.temp_dir, ignore_errors=True)
 
 
     def get_filename_in_temp(self, filename):
@@ -146,7 +147,7 @@ class Mathtraq():
             self.verbosity = run_info.verbosity
             self.flush_output = run_info.flush_output
             self.forget_mp3 = run_info.forget_mp3
-
+            self.temp_dir = run_info.temp_dir
             self.print("\nInput valid. Generating equations...", 1)
             for template in run_info.equation_templates:
                 self.equations.extend(self.generate_equations(template, run_info.max_digits))

@@ -18,6 +18,7 @@ def generate_run_info(argv):
     run_info.output_mp3 = run_info.output_mp3[0]
     run_info.max_digits = run_info.max_digits[0]
     run_info.buffer_size = run_info.buffer_size[0]
+    run_info.temp_dir = run_info.temp_dir[0]
     run_info.verbosity = run_info.verbosity[0]
     run_info.ms_pause = run_info.ms_pause[0]
     run_info.equation_templates = run_info.equation_templates
@@ -94,6 +95,8 @@ def generate_arg_parser():
                             help=buffer_help + " (default: %(default)s)")
         parser.add_argument('-v', '--verbosity', nargs=1, action='store', dest='verbosity', default=[1], type=int, choices=[0,1,2,3],
                             help="0 is no output and 3 is a lot (default: %(default)s)")
+        parser.add_argument('-t', '--temp_dir', nargs=1, action='store', dest='temp_dir', default=["temp"],
+                            help= "relative path to temporary folder (useful if multiple instances running at once- default: %(default)s)")
         parser.add_argument('-z', '--forget_mp3', action='store_true', dest='forget_mp3',
                             help="use with -j to only output the json")
         parser.add_argument('-f', '--flush_output', action='store_true', dest='flush_output',
