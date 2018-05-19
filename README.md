@@ -7,6 +7,12 @@ the pause length between the question and the answer and between equations thems
 Why? Because I suck at arithmetic and I'm too lazy to sit and just practice. Now I can practice on the go like all the cool kids.
 
 
+# Installation
+
+1. Download this repository by clicking the "Clone or download" button and saving as a zip
+2. Extract the zip to wherever, navigate into it, and run "python setup.py install"
+3. That's it! See the next section.
+
 # How to use
 
 Use python 3.6. Untested with python 2. 
@@ -14,7 +20,7 @@ Use python 3.6. Untested with python 2.
 An example run would be:
 
 ```
-python run.py  10#0(1)1000{+-}-50(2)60?5000(2) 10#10(0)99{*}10(0)99?4000(0)
+python run.py  10#0(1)1000{+-}-50(2)60?5000(2)
 ```
 This assumes you're in the directory where the Mathtraq package has been installed.
 
