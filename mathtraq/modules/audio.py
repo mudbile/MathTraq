@@ -8,6 +8,7 @@ import subprocess
 place_names = ('hundred', 'thousand', 'million', 'billion', 'trillion', 'somethings')
 extension = 'mp3'
 
+path_to_mathtraq = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 
 class Digit():
     """
@@ -18,10 +19,10 @@ class Digit():
             .tens   -> "thirty"
     """
     def __init__(self, value):
-        self.single =  'sounds/digits/' + str(value) + '/single.' + extension
-        self.teens =  'sounds/digits/' + str(value) + '/teens.' + extension
+        self.single =  os.path.join(path_to_mathtraq, 'sounds', 'digits', str(value), 'single.' + extension)
+        self.teens =  os.path.join(path_to_mathtraq, 'sounds',  'digits', str(value), 'teens.' + extension)
         if not value == 0 and not value == 1:
-            self.tens =  'sounds/digits/' + str(value) + '/tens.' + extension
+            self.tens =  os.path.join(path_to_mathtraq, 'sounds', 'digits', str(value), 'tens.' + extension)
 
 
 #maps keys to the full pathnames to sound files
@@ -37,25 +38,25 @@ audio_segments = {
     '8': Digit(8),
     '9': Digit(9),
 
-    '+': 'sounds/operators/addition.' + extension,
-    '-': 'sounds/operators/subtraction.' + extension,
-    '*': 'sounds/operators/multiplication.' + extension,
-    '**': 'sounds/operators/power_of.' + extension,
-    '/': 'sounds/operators/division.' + extension,
+    '+': path_to_mathtraq + '/sounds/operators/addition.' + extension,
+    '-': path_to_mathtraq + '/sounds/operators/subtraction.' + extension,
+    '*': path_to_mathtraq + '/sounds/operators/multiplication.' + extension,
+    '**': path_to_mathtraq + '/sounds/operators/power_of.' + extension,
+    '/': path_to_mathtraq + '/sounds/operators/division.' + extension,
 
-    'hundred': 'sounds/place_values/hundred.' + extension,
-    'thousand': 'sounds/place_values/thousand.' + extension,
-    'million': 'sounds/place_values/million.' + extension,
-    'billion': 'sounds/place_values/billion.' + extension,
-    'trillion': 'sounds/place_values/trillion.' + extension,
+    'hundred': path_to_mathtraq + '/sounds/place_values/hundred.' + extension,
+    'thousand': path_to_mathtraq + '/sounds/place_values/thousand.' + extension,
+    'million': path_to_mathtraq + '/sounds/place_values/million.' + extension,
+    'billion': path_to_mathtraq + '/sounds/place_values/billion.' + extension,
+    'trillion': path_to_mathtraq + '/sounds/place_values/trillion.' + extension,
     
-    '=': 'sounds/misc/equals.' + extension,
-    'and': 'sounds/misc/and.' + extension,
-    'decimal': 'sounds/misc/decimal.' + extension,
-    'negative': 'sounds/misc/negative.' + extension,
-    'undefined': 'sounds/misc/undefined.' + extension,
-    'somethings': 'sounds/misc/somethings.' + extension,
-    '500ms_silence': 'sounds/misc/500ms_silence.' + extension
+    '=': path_to_mathtraq + '/sounds/misc/equals.' + extension,
+    'and': path_to_mathtraq + '/sounds/misc/and.' + extension,
+    'decimal': path_to_mathtraq + '/sounds/misc/decimal.' + extension,
+    'negative': path_to_mathtraq + '/sounds/misc/negative.' + extension,
+    'undefined': path_to_mathtraq + '/sounds/misc/undefined.' + extension,
+    'somethings': path_to_mathtraq + '/sounds/misc/somethings.' + extension,
+    '500ms_silence': path_to_mathtraq + '/sounds/misc/500ms_silence.' + extension
 }
 
 
@@ -95,16 +96,16 @@ def create_silence_file(ms_length, file_name, silently = False):
         silence_file = tokens_to_audio(['500ms_silence'])
         times_to_concat = int(ms_length / 500) or 1
         if silently:
-            current_command = ['bin/mp3cat', '-f', '-q', '-o', file_name]
+            current_command = [path_to_mathtraq + '/bin/mp3cat', '-f', '-q', '-o', file_name]
         else:
-            current_command = ['bin/mp3cat', '-f', '-o', file_name]
+            current_command = [path_to_mathtraq + '/bin/mp3cat', '-f', '-o', file_name]
         current_command.extend([silence_file] * int(times_to_concat))
         subprocess.run(current_command)
 
 def create_audio_by_concatenation(files_to_concat, output_file, silently=False):
     if silently:
-        current_command = ['bin/mp3cat', '-f', '-q', '-o', output_file]
+        current_command = [path_to_mathtraq + '/bin/mp3cat', '-f', '-q', '-o', output_file]
     else:
-        current_command = ['bin/mp3cat', '-f', '-o', output_file]
+        current_command = [path_to_mathtraq + '/bin/mp3cat', '-f', '-o', output_file]
     current_command.extend(files_to_concat)
     subprocess.run(current_command)

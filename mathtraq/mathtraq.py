@@ -210,11 +210,7 @@ def run_as_module(input_string, observers=None):
     Mathtraq(observers).main(args)
 
 
-
-if __name__ == "__main__":
-    Mathtraq(None).main(sys.argv)
-
-
+#called by run.py
 def main(args):
     Mathtraq(None).main(sys.argv)
 
