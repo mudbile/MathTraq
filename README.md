@@ -29,9 +29,9 @@ The following is copied from the help output of the app itself:
 
 ```
 usage: run.py [-h] [-j OUTPUT_JSON] [-o OUTPUT_MP3] [-d MAX_DIGITS]
-                   [-b BUFFER_SIZE] [-v {0,1,2,3}]
-                   [-p pause_between_questions]
-                   template [template ...]
+              [-b BUFFER_SIZE] [-v {0,1,2,3}] [-t TEMP_DIR] [-z] [-f]
+              [-p pause_between_questions]
+              template [template ...]
 
 Create an mp3 to practice arithmetic on the go
 
@@ -42,10 +42,11 @@ positional arguments:
                         60 with a maximum of 2 decimal places. They will be a
                         mix of addition, division and subtraction, and a
                         3000ms pause will occur before the answer is given.
-                        The answer will be rounded to 2 decimal places. Note
-                        that one * in the ops is multiplcation. Two * means
-                        'to the power of' and three means both multiplication
-                        and powers
+                        The answer will be rounded to 2 decimal places.
+                        Operands can be decimals. Operators can be +, -, * or
+                        / (note that one * in the ops is multiplication, two *
+                        means 'to the power of' and three means both
+                        multiplication and powers)
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -62,6 +63,11 @@ optional arguments:
                         time. (default: [600])
   -v {0,1,2,3}, --verbosity {0,1,2,3}
                         0 is no output and 3 is a lot (default: [1])
+  -t TEMP_DIR, --temp_dir TEMP_DIR
+                        relative path to temporary folder (useful if multiple
+                        instances running at once- default: ['temp'])
+  -z, --forget_mp3      use with -j to only output the json
+  -f, --flush_output    include to immediately flush the output stream
   -p pause_between_questions, --ms_pause pause_between_questions
                         Milliseconds to pause after each question. Rounds down
                         to nearest 500, minimum 500 (default: [500])
@@ -78,4 +84,4 @@ precision (-d argument)
 
 * You can replace the audio files for the sound bites - just make sure they're all the same bitrate. Feel free to share them if you do- I've slightly modified my own voice but still... no one wants to hear themselves speak.
 
-* Add more places (eg. 'septillion') by adding the mp3 file into the placE_values folder, adding the name of the place value into the audio.place_names list between the current highest and the default 'somethings', and finally add an entry into audio.audio_segments pointing to the audio file.
+* Add more places (eg. 'septillion') by adding the mp3 file into the place_values folder, adding the name of the place value into the audio.place_names list between the current highest and the default 'somethings', and finally add an entry into audio.audio_segments pointing to the audio file.

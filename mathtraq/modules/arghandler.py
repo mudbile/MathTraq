@@ -110,8 +110,9 @@ def generate_arg_parser():
         template_help = "Example: 10#0(1)1000{+/-}-50(2)60?3000(2) will create 10 questions where the lhs is between 0 and 1000 with"
         template_help += " maximum 1 decimal place and the rhs is between -50 and 60 with a maximum of 2 decimal places."
         template_help += " They will be a mix of addition, division and subtraction, and a 3000ms pause will occur before the"
-        template_help += " answer is given. The answer will be rounded to 2 decimal places. Note that one * in the ops is"
-        template_help += " multiplcation. Two * means 'to the power of' and three means both multiplication and powers"
+        template_help += " answer is given. The answer will be rounded to 2 decimal places. Operands can be decimals."
+        template_help += " Operators can be +, -, * or / (note that one * in the ops is"
+        template_help += " multiplication, two * means 'to the power of' and three means both multiplication and powers)"
         parser.add_argument('equation_templates', action=StoreEquationTemplate, nargs='+', help=template_help, metavar='template')
 
         return parser
