@@ -1,3 +1,0 @@
-refactor ** into ^ you moron
-add decimal min/max
-make it so 2.5(1)2.5 will be 2.5 (be inclusive)

@@ -1,5 +1,3 @@
-mathtraq.mp3
-
 ffmpeg.exe
 
 output.json
@@ -8,4 +6,6 @@ convert.py
 
 subprocesstest.py
 
-other_sounds/
+todo.txt
+test.py
+o.json
