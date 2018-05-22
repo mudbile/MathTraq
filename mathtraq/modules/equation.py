@@ -49,7 +49,7 @@ class Equation():
         """
         try:
             answer = Equation.ops[self.op](self.lhs, self.rhs)
-            return localutil.round_to_num_decimals(answer, self.ans_max_dec)
+            return localutil.sround(answer, self.ans_max_dec)
         except:
             return 'undefined'
         

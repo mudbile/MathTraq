@@ -8,7 +8,7 @@ import os
 import mpmath
 
 
-template_reg = r'^(?P<num_eqs>\d+)#(?P<lhs_min>-?\d+)\((?P<lhs_dec>\d+)\)(?P<lhs_max>-?\d+){(?P<ops>[-+*/]+)}(?P<rhs_min>-?\d+)\((?P<rhs_dec>\d+)\)(?P<rhs_max>-?\d+)\?(?P<pause>\d+)\((?P<ans_dec>\d+)\)$'
+template_reg = r'^(?P<num_eqs>\d+)#(?P<lhs_min>[+-]?((\d+(\.\d*)?)|(\.\d+)))\((?P<lhs_dec>\d+)\)(?P<lhs_max>[+-]?((\d+(\.\d*)?)|(\.\d+))){(?P<ops>[-+*/]+)}(?P<rhs_min>[+-]?((\d+(\.\d*)?)|(\.\d+)))\((?P<rhs_dec>\d+)\)(?P<rhs_max>[+-]?((\d+(\.\d*)?)|(\.\d+)))\?(?P<pause>\d+)\((?P<ans_dec>\d+)\)$'
 
 def generate_run_info(argv):
     """

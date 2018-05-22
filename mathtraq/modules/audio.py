@@ -8,7 +8,8 @@ import subprocess
 place_names = ('hundred', 'thousand', 'million', 'billion', 'trillion', 'somethings')
 extension = 'mp3'
 
-path_to_mathtraq = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+#made relative to save text space so buffer can be bigger
+path_to_mathtraq = os.path.relpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))
 
 class Digit():
     """
