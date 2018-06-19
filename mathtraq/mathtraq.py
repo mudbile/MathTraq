@@ -127,8 +127,11 @@ class Mathtraq():
                 lhs = localutil.get_random(template.lhs_min, template.lhs_max, template.lhs_max_dec)
                 #get a random op
                 op = random.sample(template.ops, 1)[0]
-                #get a random rhs
-                rhs = localutil.get_random(template.rhs_min, template.rhs_max, template.rhs_max_dec)
+                #get a random rhs - if the answer has to be positive, the rhs 
+                if template.ans_pos:
+                    rhs = localutil.get_random(lhs, template.rhs_max, template.rhs_max_dec)
+                else:
+                    rhs = localutil.get_random(template.rhs_min, template.rhs_max, template.rhs_max_dec)
                 equations.append(equation.Equation(lhs, op, rhs, precision, template.ms_pause, template.ans_max_dec))
                 self.print(equations[-1].full_as_string(), 2)
 
