@@ -94,13 +94,17 @@ def create_silence_file(ms_length, file_name, silently = False):
         Create a temporary file that contains ms_length ms of silence
         rounded down to the nearest 500ms but with a minimum of 500ms
         """
-        silence_file = tokens_to_audio(['500ms_silence'])
+        silence_file = tokens_to_audio(['500ms_silence'])[0]
         times_to_concat = int(ms_length / 500) or 1
         if silently:
             current_command = [path_to_mathtraq + '/bin/mp3cat', '-f', '-q', '-o', file_name]
         else:
             current_command = [path_to_mathtraq + '/bin/mp3cat', '-f', '-o', file_name]
+        print(current_command)
+        print(silence_file)
+        print([silence_file] * int(times_to_concat))
         current_command.extend([silence_file] * int(times_to_concat))
+        print(current_command)
         subprocess.run(current_command)
 
 def create_audio_by_concatenation(files_to_concat, output_file, silently=False):

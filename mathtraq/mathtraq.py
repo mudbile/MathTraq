@@ -113,7 +113,8 @@ class Mathtraq():
             os.rename(temp_name_1, output_file)
         else:
             os.rename(temp_name_2, output_file)
-
+        print(os.getcwd())
+        
 
     def generate_equations(self, template, precision):
         """
